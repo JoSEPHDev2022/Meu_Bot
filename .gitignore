@@ -1,3 +1,6 @@
+# My archives
+ideias.txt
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -127,6 +130,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+bot_env
 
 # Spyder project settings
 .spyderproject

@@ -8,6 +8,9 @@ class Menu:
     def __init__(self):
         self._user_name = ''
         self._current_menu = 'main_menu'
+        self._hour = datetime.datetime.now().hour
+        self._current_time = datetime.datetime.now().strftime('%H:%M')
+        self._current_date = datetime.datetime.now().strftime('%d/%m/%Y')
 
     # Método personalizado de limpar terminal baseado em OS:
     def _clear_screen(self):
@@ -24,10 +27,9 @@ class Menu:
 
     # Método para exibir Saudação baseado na hora do dia:
     def _greet_user(self):
-        current_hour = datetime.datetime.now().hour
-        if current_hour < 12:
+        if self._hour < 12:
             print(f'Bom dia, {self._user_name.capitalize()}!')
-        elif current_hour < 18:
+        elif self._hour < 18:
             print(f'Boa tarde, {self._user_name.capitalize()}!')
         else:
             print(f'Boa noite, {self._user_name.capitalize()}!')
@@ -36,9 +38,16 @@ class Menu:
     def _get_user_name(self):
         self._user_name = input('Por favor, insira seu nome: ')
 
+    # Método para mostrar o nome, data e hora de entrada do usuário:
+    def _display_log_info(self):
+        print(f'Data do Acesso: {self._current_date}')
+        print(f'Hora do Acesso: {self._current_time}')
+        print(f'Usuário Logado: {self._user_name}\n')
+
     # MENU PRINCIPAL: Métodos de apresentação e tratativa
     def _display_main_menu(self):
         self._display_header('MENU PRINCIPAL')
+        self._display_log_info()
         print('1 - Sobre Mim')
         print('2 - Meus Projetos')
         print('3 - Habilidades Tech e Soft')
@@ -69,6 +78,7 @@ class Menu:
     # MENU SOBRE MIM: Métodos de apresentação e tratativa
     def _display_about_me_menu(self):
         self._display_header('SOBRE MIM')
+        self._display_log_info()
         print('1 - Profissional')
         print('2 - Pessoal')
         print('3 - Voltar ao Menu Principal')
@@ -96,6 +106,7 @@ class Menu:
     # PROFISSIONAL:
     def _display_professional_menu(self):
         self._display_header('PROFISSIONAL')
+        self._display_log_info()
         print('1 - Resumo Profissional')
         print('2 - Objetivo')
         print('3 - Voltar ao Menu Anterior')
@@ -122,6 +133,7 @@ class Menu:
     # PESSOAL:
     def _display_personal_menu(self):
         self._display_header('PESSOAL')
+        self._display_log_info()
         print('1 - Quem sou Eu')
         print('2 - Meus Hobbys')
         print('3 - Voltar ao Menu Anterior')
@@ -148,6 +160,7 @@ class Menu:
     # MENU PROJETOS: Métodos de apresentação e tratativa   
     def _display_projects_menu(self):
         self._display_header('PROJETOS')
+        self._display_log_info()
         print('1 - Projetos em Destaque')
         print('2 - Porfólio Completo')
         print('3 - Voltar ao Menu Principal')
@@ -174,6 +187,7 @@ class Menu:
     # MENU HABILIDADES: Métodos de apresentação e tratativa   
     def _display_skills_menu(self):
         self._display_header("HABILIDADES TECH E SOFT")
+        self._display_log_info()
         print("1 - Tech")
         print("2 - Soft")
         print("3 - Voltar ao menu principal")
@@ -200,6 +214,7 @@ class Menu:
     # MENU CONTATOS: Métodos de apresentação e tratativa   
     def _display_contacts_menu(self):
         self._display_header("CONTATOS")
+        self._display_log_info()
         print("1 - LinkedIn")
         print("2 - E-mail")
         print("3 - Voltar ao menu principal")
@@ -263,4 +278,3 @@ class Initializer(Menu):
             elif self._current_menu == "contacts_menu":
                 self._display_contacts_menu()
                 self._handle_contacts_menu_selection()
-                

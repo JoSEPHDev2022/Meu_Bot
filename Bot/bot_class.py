@@ -1,15 +1,9 @@
 import datetime
 import os
 import platform
+import constants
 
 class Menu:
-    # Definindo constantes de menus para facilitar manutenção:
-    OPTION_ABOUT_ME = '1'
-    OPTION_PROJECTS = '2'
-    OPTION_SKILLS = '3'
-    OPTION_CONTACTS = '4'
-    OPTION_EXIT = '5'
-
     # Método construtor:
     def __init__(self):
         self._user_name = ''
@@ -42,7 +36,7 @@ class Menu:
     def _get_user_name(self):
         self._user_name = input('Por favor, insira seu nome: ')
 
-    # Método para apresentar menu principal:
+    # MENU PRINCIPAL: Métodos de apresentação e tratativa
     def _display_main_menu(self):
         self._display_header('MENU PRINCIPAL')
         print('1 - Sobre Mim')
@@ -51,25 +45,52 @@ class Menu:
         print('4 - Contatos')
         print('5 - Sair')
 
-    # Método para lidar com escolha de menu, com prevenção a inputs inválidos:
     def _handle_main_menu_selection(self):
         while True:
             selection = input('Escolha uma área para saber mais: ')
-            if selection == self.OPTION_ABOUT_ME:
+            if selection == constants.MENU_ABOUT_ME:
                 self._current_menu = 'about_me_menu'
                 break
-            elif selection == self.OPTION_PROJECTS:
+            elif selection == constants.MENU_PROJECTS:
                 self._current_menu = 'projects_menu'
                 break
-            elif selection == self.OPTION_SKILLS:
+            elif selection == constants.MENU_SKILLS:
                 self._current_menu = 'skills_menu'
                 break
-            elif selection == self.OPTION_CONTACTS:
+            elif selection == constants.MENU_CONTACTS:
                 self._current_menu = 'contacts_menu'
                 break
-            elif selection == self.OPTION_EXIT:
+            elif selection == constants.MENU_EXIT:
                 self._current_menu = 'exit'
                 break
             else:
-                print('Opção inválida. Por favor insira um número de menu válido.')
+                print(constants.INVALID_ENTRY_MESSAGE)
+
+    # MENU SOBRE MIM: Métodos de apresentação e tratativa
+    def _display_about_me_menu(self):
+        self._display_header('SOBRE MIM')
+        print('1 - Profissional')
+        print('2 - Pessoal')
+        print('3 - Voltar ao Menu Principal')
+        print('4 - Sair')
+
+    def _handle_about_me_menu_selection(self):
+        while True:
+            selection = input('Escolha uma área para saber mais: ')
+            if selection == constants.ABOUT_PROFESSIONAL:
+                self._current_menu = 'professional_menu'
+                break
+            elif selection == constants.ABOUT_PERSONAL:
+                self._current_menu = 'personal_menu'
+                break
+            elif selection == constants.ABOUT_RETURN_MAIN_MENU:
+                self._current_menu = 'main_menu'
+                break
+            elif selection == constants.ABOUT_EXIT:
+                self._current_menu = 'exit'
+                break
+            else:
+                print(constants.INVALID_ENTRY_MESSAGE)
+            
+            
     

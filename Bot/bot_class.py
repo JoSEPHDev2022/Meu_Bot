@@ -145,4 +145,28 @@ class Menu:
             else:
                 print(constants.INVALID_ENTRY_MESSAGE)
 
-            
+    # MENU Projetos: Métodos de apresentação e tratativa   
+    def _display_projects_menu(self):
+        self._display_header('PROJETOS')
+        print('1 - Projetos em Destaque')
+        print('2 - Porfólio Completo')
+        print('3 - Voltar ao Menu Principal')
+        print('4 - Sair')
+
+    def _handle_projects_menu_selection(self):
+        while True:
+            selection = input('Escolha uma área para saber mais: ')
+            if selection == constants.PROJECTS_HIGHLIGHTS:
+                ... # Resposta pendente
+                break
+            if selection == constants.PROJECTS_PORTFOLIO:
+                ... # Resposta pendente
+                break
+            if selection == constants.PROJECTS_RETURN_MAIN_MENU:
+                self._current_menu = 'main_menu'
+                break
+            elif selection == constants.PROJECTS_EXIT:
+                self._current_menu = 'exit'
+                break
+            else:
+                print(constants.INVALID_ENTRY_MESSAGE)

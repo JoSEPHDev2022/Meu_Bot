@@ -33,5 +33,11 @@ PROJECTS_PORTFOLIO = '2'
 PROJECTS_RETURN_MAIN_MENU = '3'
 PROJECTS_EXIT = '4'
 
+# Constantes Menu Habilidades:
+SKILLS_TECH = '1'
+SKILLS_SOFT = '2'
+SKILLS_RETURN_MAIN_MENU = '3'
+SKILLS_EXIT = '4'
+
 # Constantes globais:
 INVALID_ENTRY_MESSAGE = 'Opção inválida. Por favor insira um número de menu válido.'

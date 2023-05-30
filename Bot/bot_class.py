@@ -222,3 +222,45 @@ class Menu:
                 break
             else:
                 print(constants.INVALID_ENTRY_MESSAGE)
+
+# Classe Inicializadora do Bot. Essa classe herda os atributos da classe Menu.
+class Initializer(Menu):
+    # Construtor que liga as duas classes e seus atributos:
+    def __init__(self):
+        super().__init__()
+
+    # Método inicializador do programa:
+    def run(self):
+        self._get_user_name()
+        self._greet_user()
+
+        while self._current_menu != 'exit':
+            # Inicializar Menu Principal:
+            if self._current_menu == "main_menu":
+                self._display_main_menu()
+                self._handle_main_menu_selection()
+            # Inicializar Menu Sobre Mim:
+            elif self._current_menu == "about_me_menu":
+                self._display_about_me_menu()
+                self._handle_about_me_menu_selection()
+            # Inicializar Sub-Menu Profissional:
+            elif self._current_menu == "professional_menu":
+                self._display_professional_menu()
+                self._handle_professional_menu_selection()
+            # Inicializar Sub-Menu Pessoal:
+            elif self._current_menu == "personal_menu":
+                self._display_personal_menu()
+                self._handle_personal_menu_selection()
+            # Inicializar Menu Projetos:
+            elif self._current_menu == "projects_menu":
+                self._display_projects_menu()
+                self._handle_projects_menu_selection()
+            # Inicializar Menu Habilidades:
+            elif self._current_menu == "skills_menu":
+                self._display_skills_menu()
+                self._handle_skills_menu_selection()
+            # Inicializar Menu Contatos:
+            elif self._current_menu == "contacts_menu":
+                self._display_contacts_menu()
+                self._handle_contacts_menu_selection()
+                

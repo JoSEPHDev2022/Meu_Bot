@@ -21,5 +21,11 @@ PROF_OBJECTIVE = '2'
 PROF_RETURN_ABOUT_MENU = '3'
 PROF_EXIT = '4'
 
+# Constantes Sub-Menu Sobre Mim Pessoal:
+PERSONAL_ME = '1'
+PERSONAL_HOBBYS = '2'
+PERSONAL_RETURN_ABOUT_MENU = '3'
+PERSONAL_EXIT = '4'
+
 # Constantes globais:
 INVALID_ENTRY_MESSAGE = 'Opção inválida. Por favor insira um número de menu válido.'

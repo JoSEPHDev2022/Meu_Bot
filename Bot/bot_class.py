@@ -145,7 +145,7 @@ class Menu:
             else:
                 print(constants.INVALID_ENTRY_MESSAGE)
 
-    # MENU Projetos: Métodos de apresentação e tratativa   
+    # MENU PROJETOS: Métodos de apresentação e tratativa   
     def _display_projects_menu(self):
         self._display_header('PROJETOS')
         print('1 - Projetos em Destaque')
@@ -170,3 +170,30 @@ class Menu:
                 break
             else:
                 print(constants.INVALID_ENTRY_MESSAGE)
+
+    # MENU HABILIDADES: Métodos de apresentação e tratativa   
+    def _display_skills_menu(self):
+        self._display_header("HABILIDADES TECH E SOFT")
+        print("1 - Tech")
+        print("2 - Soft")
+        print("3 - Voltar ao menu principal")
+        print("4 - Sair")
+
+    def _handle_skills_menu_selection(self):
+        while True:
+            selection = input('Escolha uma área para saber mais: ')
+            if selection == constants.SKILLS_TECH:
+                ... # Resposta pendente
+                break
+            if selection == constants.SKILLS_SOFT:
+                ... # Resposta pendente
+                break
+            if selection == constants.SKILLS_RETURN_MAIN_MENU:
+                self._current_menu = 'main_menu'
+                break
+            elif selection == constants.SKILLS_EXIT:
+                self._current_menu = 'exit'
+                break
+            else:
+                print(constants.INVALID_ENTRY_MESSAGE)
+                

@@ -42,5 +42,34 @@ class Menu:
     def _get_user_name(self):
         self._user_name = input('Por favor, insira seu nome: ')
 
-        
+    # Método para apresentar menu principal:
+    def _display_main_menu(self):
+        self._display_header('MENU PRINCIPAL')
+        print('1 - Sobre Mim')
+        print('2 - Meus Projetos')
+        print('3 - Habilidades Tech e Soft')
+        print('4 - Contatos')
+        print('5 - Sair')
+
+    # Método para lidar com escolha de menu, com prevenção a inputs inválidos:
+    def _handle_main_menu_selection(self):
+        while True:
+            selection = input('Escolha uma área para saber mais: ')
+            if selection == self.OPTION_ABOUT_ME:
+                self._current_menu = 'about_me_menu'
+                break
+            elif selection == self.OPTION_PROJECTS:
+                self._current_menu = 'projects_menu'
+                break
+            elif selection == self.OPTION_SKILLS:
+                self._current_menu = 'skills_menu'
+                break
+            elif selection == self.OPTION_CONTACTS:
+                self._current_menu = 'contacts_menu'
+                break
+            elif selection == self.OPTION_EXIT:
+                self._current_menu = 'exit'
+                break
+            else:
+                print('Opção inválida. Por favor insira um número de menu válido.')
     

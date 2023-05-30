@@ -196,4 +196,29 @@ class Menu:
                 break
             else:
                 print(constants.INVALID_ENTRY_MESSAGE)
-                
+
+    # MENU CONTATOS: Métodos de apresentação e tratativa   
+    def _display_contacts_menu(self):
+        self._display_header("CONTATOS")
+        print("1 - LinkedIn")
+        print("2 - E-mail")
+        print("3 - Voltar ao menu principal")
+        print("4 - Sair")
+
+    def _handle_contacts_menu_selection(self):
+        while True:
+            selection = input('Escolha uma área para saber mais: ')
+            if selection == constants.CONT_LINKEDIN:
+                ... # Resposta pendente
+                break
+            if selection == constants.CONT_EMAIL:
+                ... # Resposta pendente
+                break
+            if selection == constants.CONT_RETURN_MAIN_MENU:
+                self._current_menu = 'main_menu'
+                break
+            elif selection == constants.CONT_EXIT:
+                self._current_menu = 'exit'
+                break
+            else:
+                print(constants.INVALID_ENTRY_MESSAGE)

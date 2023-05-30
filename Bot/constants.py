@@ -27,5 +27,11 @@ PERSONAL_HOBBYS = '2'
 PERSONAL_RETURN_ABOUT_MENU = '3'
 PERSONAL_EXIT = '4'
 
+# Constantes Menu Projetos:
+PROJECTS_HIGHLIGHTS = '1'
+PROJECTS_PORTFOLIO = '2'
+PROJECTS_RETURN_MAIN_MENU = '3'
+PROJECTS_EXIT = '4'
+
 # Constantes globais:
 INVALID_ENTRY_MESSAGE = 'Opção inválida. Por favor insira um número de menu válido.'

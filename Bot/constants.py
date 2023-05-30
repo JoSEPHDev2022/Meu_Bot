@@ -15,5 +15,11 @@ ABOUT_PERSONAL = '2'
 ABOUT_RETURN_MAIN_MENU = '3'
 ABOUT_EXIT = '4'
 
+# Constantes Sub-Menu Sobre Mim Profissional:
+PROF_RESUME = '1'
+PROF_OBJECTIVE = '2'
+PROF_RETURN_ABOUT_MENU = '3'
+PROF_EXIT = '4'
+
 # Constantes globais:
 INVALID_ENTRY_MESSAGE = 'Opção inválida. Por favor insira um número de menu válido.'

@@ -118,3 +118,31 @@ class Menu:
                 break
             else:
                 print(constants.INVALID_ENTRY_MESSAGE) 
+
+    # PESSOAL:
+    def _display_personal_menu(self):
+        self._display_header('PESSOAL')
+        print('1 - Quem sou Eu')
+        print('2 - Meus Hobbys')
+        print('3 - Voltar ao Menu Anterior')
+        print('4 - Sair')
+
+    def _handle_personal_menu_selection(self):
+        while True:
+            selection = input('Escolha uma área para saber mais: ')
+            if selection == constants.PERSONAL_ME:
+                ... # Resposta pendente
+                break
+            elif selection == constants.PERSONAL_HOBBYS:
+                ... # Resposta pendente
+                break
+            elif selection == constants.PERSONAL_RETURN_ABOUT_MENU:
+                self._current_menu = 'about_me_menu'
+                break
+            elif selection == constants.PERSONAL_EXIT:
+                self._current_menu = 'exit'
+                break
+            else:
+                print(constants.INVALID_ENTRY_MESSAGE)
+
+            

@@ -91,6 +91,30 @@ class Menu:
                 break
             else:
                 print(constants.INVALID_ENTRY_MESSAGE)
-            
-            
-    
+
+    # SUB-MENUS SOBRE MIM:
+    # PROFISSIONAL:
+    def _display_professional_menu(self):
+        self._display_header('PROFISSIONAL')
+        print('1 - Resumo Profissional')
+        print('2 - Objetivo')
+        print('3 - Voltar ao Menu Anterior')
+        print('4 - Sair')
+
+    def _handle_professional_menu_selection(self):
+        while True:
+            selection = input('Escolha uma área para saber mais: ')
+            if selection == constants.PROF_RESUME:
+                ... # Resposta pendente
+                break
+            elif selection == constants.PROF_OBJECTIVE:
+                ... # Resposta pendente
+                break
+            elif selection == constants.PROF_RETURN_ABOUT_MENU:
+                self._current_menu = 'about_me_menu'
+                break
+            elif selection == constants.PROF_EXIT:
+                self._current_menu = 'exit'
+                break
+            else:
+                print(constants.INVALID_ENTRY_MESSAGE) 

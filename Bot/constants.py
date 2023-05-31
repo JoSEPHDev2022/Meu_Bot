@@ -12,38 +12,30 @@ MENU_EXIT = '5'
 # Constantes Menu Sobre Mim:
 ABOUT_PROFESSIONAL = '1'
 ABOUT_PERSONAL = '2'
-ABOUT_RETURN_MAIN_MENU = '3'
-ABOUT_EXIT = '4'
 
 # Constantes Sub-Menu Sobre Mim Profissional:
 PROF_RESUME = '1'
 PROF_OBJECTIVE = '2'
-PROF_RETURN_ABOUT_MENU = '3'
-PROF_EXIT = '4'
 
 # Constantes Sub-Menu Sobre Mim Pessoal:
 PERSONAL_ME = '1'
 PERSONAL_HOBBYS = '2'
-PERSONAL_RETURN_ABOUT_MENU = '3'
-PERSONAL_EXIT = '4'
 
 # Constantes Menu Projetos:
 PROJECTS_HIGHLIGHTS = '1'
 PROJECTS_PORTFOLIO = '2'
-PROJECTS_RETURN_MAIN_MENU = '3'
-PROJECTS_EXIT = '4'
 
 # Constantes Menu Habilidades:
 SKILLS_TECH = '1'
 SKILLS_SOFT = '2'
-SKILLS_RETURN_MAIN_MENU = '3'
-SKILLS_EXIT = '4'
 
 # Constantes Menu Contatos:
 CONT_LINKEDIN = '1'
 CONT_EMAIL = '2'
-CONT_RETURN_MAIN_MENU = '3'
-CONT_EXIT = '4'
 
 # Constantes globais:
 INVALID_ENTRY_MESSAGE = 'Opção inválida. Por favor insira um número de menu válido.'
+GENERAL_RETURN = '3'
+GENERAL_EXIT = '4'
+FINAL_RETURN = '1'
+FINAL_EXIT = '2'

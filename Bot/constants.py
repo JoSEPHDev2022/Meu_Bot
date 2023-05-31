@@ -39,3 +39,8 @@ GENERAL_RETURN = '3'
 GENERAL_EXIT = '4'
 FINAL_RETURN = '1'
 FINAL_EXIT = '2'
+
+# Constantes de cores para o terminal:
+GREEN = '\033[92m'
+RESET = '\033[0m'
+BOLD = '\033[1m'

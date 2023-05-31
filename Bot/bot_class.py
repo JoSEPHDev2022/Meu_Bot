@@ -47,7 +47,7 @@ class GeneralMethods:
 
     # Método para mostrar informações de entrada do usuário:
     def _display_login_information(self):
-        print(f'Data do Acesso: {self._current_date}')
+        print(f'\nData do Acesso: {self._current_date}')
         print(f'Hora do Acesso: {self._current_time}')
         print(f'Usuário Logado: {self._user_name}\n')
 
@@ -60,6 +60,7 @@ class MainMenu(GeneralMethods):
     # Método de apresentação do menu:
     def _display_main_menu(self):
         self._display_header('MENU PRINCIPAL')
+        self._greet_user()
         self._display_login_information()
         print('1 - Sobre Mim')
         print('2 - Meus Projetos')
@@ -98,6 +99,7 @@ class AboutMeMenu(GeneralMethods):
     # Método de apresentação do menu:
     def _display_about_me_menu(self):
         self._display_header('SOBRE MIM')
+        self._greet_user()
         self._display_login_information()
         print('1 - Profissional')
         print('2 - Pessoal')
@@ -126,6 +128,7 @@ class AboutMeMenu(GeneralMethods):
     # Sub-menu Profissional:
     def _display_professional_menu(self):
         self._display_header('SOBRE MIM: PROFISSIONAL')
+        self._greet_user()
         self._display_login_information()
         print('1 - Resumo Profissional')
         print('2 - Objetivo')
@@ -153,6 +156,7 @@ class AboutMeMenu(GeneralMethods):
     # SubSub-Menu Resumo Profissional:
     def _display_professional_resume_menu(self):
         self._display_header('PROFISSIONAL: RESUMO PROFISSIONAL')
+        self._greet_user()
         self._display_login_information()
         print('TEMP TEMP TEMP')
         print('1 - Voltar ao Menu Anterior')
@@ -161,6 +165,7 @@ class AboutMeMenu(GeneralMethods):
     # SubSub-Menu Objetivo Profissional:
     def _display_professional_objective_menu(self):
         self._display_header('PROFISSIONAL: RESUMO PROFISSIONAL')
+        self._greet_user()
         self._display_login_information()
         print('TEMP TEMP TEMP')
         print('1 - Voltar ao Menu Anterior')
@@ -182,6 +187,7 @@ class AboutMeMenu(GeneralMethods):
     # Sub-menu Pessoal:
     def _display_personal_menu(self):
         self._display_header('SOBRE MIM: PESSOAL')
+        self._greet_user()
         self._display_login_information()
         print('1 - Quem sou Eu')
         print('2 - Meus Hobbys')
@@ -209,6 +215,7 @@ class AboutMeMenu(GeneralMethods):
     # SubSub-Menu Quem Sou Eu:
     def _display_personal_me_menu(self):
         self._display_header('SOBRE MIM: QUEM SOU EU')
+        self._greet_user()
         self._display_login_information()
         print('TEMP TEMP TEMP')
         print('1 - Voltar ao Menu Anterior')
@@ -217,6 +224,7 @@ class AboutMeMenu(GeneralMethods):
     # SubSub-Menu Hobbys:
     def _display_personal_hobbys_menu(self):
         self._display_header('SOBRE MIM: HOBBYS')
+        self._greet_user()
         self._display_login_information()
         print('TEMP TEMP TEMP')
         print('1 - Voltar ao Menu Anterior')
@@ -244,6 +252,7 @@ class ProjectsMenu(GeneralMethods):
     # Método de apresentação do menu:
     def _display_projects_menu(self):
         self._display_header('PROJETOS')
+        self._greet_user()
         self._display_login_information()
         print('1 - Projetos em Destaque')
         print('2 - Porfólio Completo')
@@ -272,6 +281,7 @@ class ProjectsMenu(GeneralMethods):
     # SubSub-Menu Projetos em Destaque:
     def _display_project_highlights_menu(self):
         self._display_header('PROJETOS: PROJETOS EM DESTAQUE')
+        self._greet_user()
         self._display_login_information()
         print('TEMP TEMP TEMP')
         print('1 - Voltar ao Menu Anterior')
@@ -280,6 +290,7 @@ class ProjectsMenu(GeneralMethods):
     # SubSub-Menu Portfólio Completo:
     def _display_project_porfolio_menu(self):
         self._display_header('PROJETOS: PORTFÓLIO COMPLETO')
+        self._greet_user()
         self._display_login_information()
         print('TEMP TEMP TEMP')
         print('1 - Voltar ao Menu Anterior')
@@ -306,6 +317,7 @@ class SkillsMenu(GeneralMethods):
     # Método de apresentação do menu:
     def _display_skills_menu(self):
         self._display_header("HABILIDADES TECH E SOFT")
+        self._greet_user()
         self._display_login_information()
         print("1 - Tech")
         print("2 - Soft")
@@ -334,6 +346,7 @@ class SkillsMenu(GeneralMethods):
     # SubSub-Menu Tech Skills:
     def _display_tech_skills_menu(self):
         self._display_header('HABILIDADES: TECH')
+        self._greet_user()
         self._display_login_information()
         print('TEMP TEMP TEMP')
         print('1 - Voltar ao Menu Anterior')
@@ -342,6 +355,7 @@ class SkillsMenu(GeneralMethods):
     # SubSub-Menu Soft Skills:
     def _display_soft_skills_menu(self):
         self._display_header('HABILIDADES: SOFT')
+        self._greet_user()
         self._display_login_information()
         print('TEMP TEMP TEMP')
         print('1 - Voltar ao Menu Anterior')
@@ -369,6 +383,7 @@ class ContactsMenu(GeneralMethods):
     # Método de apresentação do menu:
     def _display_contacts_menu(self):
         self._display_header("CONTATOS")
+        self._greet_user()
         self._display_login_information()
         print("1 - LinkedIn")
         print("2 - E-mail")
@@ -397,6 +412,7 @@ class ContactsMenu(GeneralMethods):
     # SubSub-Menu LinkedIn:
     def _display_linkedin_menu(self):
         self._display_header('CONTATOS: LINKEDIN')
+        self._greet_user()
         self._display_login_information()
         print('TEMP TEMP TEMP')
         print('1 - Voltar ao Menu Anterior')
@@ -405,6 +421,7 @@ class ContactsMenu(GeneralMethods):
     # SubSub-Menu Email:
     def _display_email_menu(self):
         self._display_header('CONTATOS: E-MAIL')
+        self._greet_user()
         self._display_login_information()
         print('TEMP TEMP TEMP')
         print('1 - Voltar ao Menu Anterior')
@@ -429,76 +446,99 @@ class Initializer(MainMenu, AboutMeMenu, ProjectsMenu, SkillsMenu, ContactsMenu)
     def __init__(self):
         super().__init__()
 
+    # Definindo dicionário para chamada de cada menu:
+        self.menu_functions = {
+            'main_menu': self.run_main_menu,
+            'about_me_menu': self.run_about_me_menu,
+            'professional_menu': self.run_professional_menu,
+            'prof_resume_menu': self.run_professional_resume_menu,
+            'prof_objective_menu': self.run_professional_objective_menu,
+            'personal_menu': self.run_personal_menu,
+            'personal_me_menu': self.run_personal_me_menu,
+            'personal_hobbys_menu': self.run_personal_hobbys_menu,
+            'projects_menu': self.run_projects_menu,
+            'projects_highlights_menu': self.run_project_highlights_menu,
+            'projects_portfolio_menu': self.run_project_portfolio_menu,
+            'skills_menu': self.run_skills_menu,
+            'tech_skills_menu': self.run_tech_skills_menu,
+            'soft_skills_menu': self.run_soft_skills_menu,
+            'contacts_menu': self.run_contacts_menu,
+            'linkedin_menu': self.run_linkedin_menu,
+            'email_menu': self.run_email_menu
+        }
+
     def run(self):
         self._get_user_name()
-        self._greet_user()
 
         while self._current_menu != 'exit':
-            # Inicializar Menu Principal:
-            if self._current_menu == 'main_menu':
-                self._display_main_menu()
-                self._handle_main_menu_selection()
-            # Inicializar Menu Sobre Mim:
-            elif self._current_menu == 'about_me_menu':
-                self._display_about_me_menu()
-                self._handle_about_me_menu_selection()
-            # Inicializar sub-menu Profissional:
-            elif self._current_menu == 'professional_menu':
-                self._display_professional_menu()
-                self._handle_professional_menu_selection()
-            # Inicializar subsub-menu Resumo Profissional:
-            elif self._current_menu == 'prof_resume_menu':
-                self._display_professional_resume_menu()
-                self._handle_professional_final_menus()
-            # Inicializar subsub-menu Objetivo Profissional:
-            elif self._current_menu == 'prof_objective_menu':
-                self._display_professional_objective_menu()
-                self._handle_professional_final_menus()
-            # Inicializar sub-menu Pessoal:
-            elif self._current_menu == 'personal_menu':
-                self._display_personal_menu()
-                self._handle_personal_menu_selection()
-            # Inicializar subsub-menu Quem Sou Eu:
-            elif self._current_menu == 'personal_me_menu':
-                self._display_personal_me_menu()
-                self._handle_personal_final_menus()
-            # Inicializar subsub-menu Hobbys:
-            elif self._current_menu == 'personal_hobbys_menu':
-                self._display_personal_hobbys_menu()
-                self._handle_personal_final_menus()
-            # Inicializar Menu Projetos:
-            elif self._current_menu == 'projects_menu':
-                self._display_projects_menu()
-                self._handle_projects_menu_selection()
-            # Inicializar sub-menu Projetos em Destaque:
-            elif self._current_menu == 'projects_highlights_menu':
-                self._display_project_highlights_menu()
-                self._handle_projects_final_menus()
-            # Inicializar sub-menu Porfólio Completo:
-            elif self._current_menu == 'projects_portfolio_menu':
-                self._display_project_porfolio_menu()
-                self._handle_projects_final_menus()
-            # Inicializar Menu Habilidades:
-            elif self._current_menu == 'skills_menu':
-                self._display_skills_menu()
-                self._handle_skills_menu_selection()
-            # Inicializar sub-menu Tech:
-            elif self._current_menu == 'tech_skills_menu':
-                self._display_tech_skills_menu()
-                self._handle_skills_final_menus()
-            # Inicializar sub-menu Soft:
-            elif self._current_menu == 'soft_skills_menu':
-                self._display_soft_skills_menu()
-                self._handle_skills_final_menus()
-            # Inicializar Menu Contatos:
-            elif self._current_menu == 'contacts_menu':
-                self._display_contacts_menu()
-                self._handle_contacts_menu_selection()
-            # Inicializar sub-menu LinkedIn:
-            elif self._current_menu == 'linkedin_menu':
-                self._display_linkedin_menu()
-                self._handle_contacts_final_menus()
-            # Inicializar sub-menu e-mail:
-            elif self._current_menu == 'email_menu':
-                self._display_email_menu()
-                self._handle_contacts_final_menus()
+            if self._current_menu in self.menu_functions:
+                menu_function = self.menu_functions[self._current_menu]
+                menu_function()
+
+    def run_main_menu(self):
+        self._display_main_menu()
+        self._handle_main_menu_selection()
+
+    def run_about_me_menu(self):
+        self._display_about_me_menu()
+        self._handle_about_me_menu_selection()
+
+    def run_professional_menu(self):
+        self._display_professional_menu()
+        self._handle_professional_menu_selection()
+
+    def run_professional_resume_menu(self):
+        self._display_professional_resume_menu()
+        self._handle_professional_final_menus()
+
+    def run_professional_objective_menu(self):
+        self._display_professional_objective_menu()
+        self._handle_professional_final_menus()
+
+    def run_personal_menu(self):
+        self._display_personal_menu()
+        self._handle_personal_menu_selection()
+
+    def run_personal_me_menu(self):
+        self._display_personal_me_menu()
+        self._handle_personal_final_menus()
+
+    def run_personal_hobbys_menu(self):
+        self._display_personal_hobbys_menu()
+        self._handle_personal_final_menus()
+
+    def run_projects_menu(self):
+        self._display_projects_menu()
+        self._handle_projects_menu_selection()
+
+    def run_project_highlights_menu(self):
+        self._display_project_highlights_menu()
+        self._handle_projects_final_menus()
+
+    def run_project_portfolio_menu(self):
+        self._display_project_porfolio_menu()
+        self._handle_projects_final_menus()
+
+    def run_skills_menu(self):
+        self._display_skills_menu()
+        self._handle_skills_menu_selection()
+
+    def run_tech_skills_menu(self):
+        self._display_tech_skills_menu()
+        self._handle_skills_final_menus()
+
+    def run_soft_skills_menu(self):
+        self._display_soft_skills_menu()
+        self._handle_skills_final_menus()
+
+    def run_contacts_menu(self):
+        self._display_contacts_menu()
+        self._handle_contacts_menu_selection()
+
+    def run_linkedin_menu(self):
+        self._display_linkedin_menu()
+        self._handle_contacts_final_menus()
+
+    def run_email_menu(self):
+        self._display_email_menu()
+        self._handle_contacts_final_menus()

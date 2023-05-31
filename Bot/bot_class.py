@@ -9,6 +9,7 @@ import datetime
 import os
 import platform
 import constants
+from time import sleep
 
 # Classe Coletora de informações:
 class GeneralMethods:
@@ -30,26 +31,26 @@ class GeneralMethods:
     # Método para apresentação de um header personalizado:
     def _display_header(self, header_text):
         self._clear_screen()
-        print(f' {header_text} '.center(75,'-'))
+        print(f' {constants.GREEN}{constants.BOLD}{header_text}{constants.RESET} '.center(75,'-'))
 
     # Método para exibir Saudação baseado na hora do dia:
     def _greet_user(self):
         if self._current_hour < 12:
-            print(f'Bom Dia, {self._user_name}!')
+            print(f'Bom Dia, {constants.BOLD}{self._user_name}{constants.RESET}!')
         elif self._current_hour < 18:
-            print(f'Boa Tarde, {self._user_name}!')
+            print(f'Boa Tarde, {constants.BOLD}{self._user_name}{constants.RESET}!')
         else:
-            print(f'Boa Noite, {self._user_name}!')
+            print(f'Boa Noite, {constants.BOLD}{self._user_name}{constants.RESET}!')
     
     # Método para coletar user_name:
     def _get_user_name(self):
-        self._user_name = input('Por favor, insira seu nome: ').title()
+        self._user_name = input(f'{constants.GREEN}{constants.BOLD}Por favor, insira seu nome:{constants.RESET} ').title()
 
     # Método para mostrar informações de entrada do usuário:
     def _display_login_information(self):
-        print(f'\nData do Acesso: {self._current_date}')
-        print(f'Hora do Acesso: {self._current_time}')
-        print(f'Usuário Logado: {self._user_name}\n')
+        print(f'\nData do Acesso: {constants.BOLD}{self._current_date}{constants.RESET}')
+        print(f'Hora do Acesso: {constants.BOLD}{self._current_time}{constants.RESET}')
+        print(f'Usuário Logado: {constants.BOLD}{self._user_name}{constants.RESET}\n')
 
 #===================================================================================================#
 # Classe Menu Principal:
@@ -62,16 +63,16 @@ class MainMenu(GeneralMethods):
         self._display_header('MENU PRINCIPAL')
         self._greet_user()
         self._display_login_information()
-        print('1 - Sobre Mim')
-        print('2 - Meus Projetos')
-        print('3 - Habilidades Tech e Soft')
-        print('4 - Contatos')
-        print('5 - Sair')
+        print('[1] - Sobre Mim')
+        print('[2] - Meus Projetos')
+        print('[3] - Habilidades Tech e Soft')
+        print('[4] - Contatos')
+        print('[5] - Sair')
 
     # Método para lidar com entrada do usuário:
     def _handle_main_menu_selection(self):
         while True:
-            user_choice = input('\nEscolha uma área para saber mais: ')
+            user_choice = input(f'\n{constants.BOLD}Escolha uma área para saber mais:{constants.RESET} ')
             if user_choice == constants.MENU_ABOUT_ME:
                 self._current_menu = 'about_me_menu'
                 break
@@ -101,15 +102,15 @@ class AboutMeMenu(GeneralMethods):
         self._display_header('SOBRE MIM')
         self._greet_user()
         self._display_login_information()
-        print('1 - Profissional')
-        print('2 - Pessoal')
-        print('3 - Voltar ao Menu Principal')
-        print('4 - Sair')
+        print('[1] - Profissional')
+        print('[2] - Pessoal')
+        print('[3] - Voltar ao Menu Principal')
+        print('[4] - Sair')
 
     # Método para lidar com entrada do usuário:
     def _handle_about_me_menu_selection(self):
         while True:
-            user_choice = input('\nEscolha uma área para saber mais: ')
+            user_choice = input(f'\n{constants.BOLD}Escolha uma área para saber mais:{constants.RESET} ')
             if user_choice == constants.ABOUT_PROFESSIONAL:
                 self._current_menu = 'professional_menu'
                 break
@@ -130,14 +131,14 @@ class AboutMeMenu(GeneralMethods):
         self._display_header('SOBRE MIM: PROFISSIONAL')
         self._greet_user()
         self._display_login_information()
-        print('1 - Resumo Profissional')
-        print('2 - Objetivo')
-        print('3 - Voltar ao Menu Anterior')
-        print('4 - Sair')
+        print('[1] - Resumo Profissional')
+        print('[2] - Objetivo')
+        print('[3] - Voltar ao Menu Anterior')
+        print('[4] - Sair')
 
     def _handle_professional_menu_selection(self):
         while True:
-            user_choice = input('\nEscolha uma área para saber mais: ')
+            user_choice = input(f'\n{constants.BOLD}Escolha uma área para saber mais:{constants.RESET} ')
             if user_choice == constants.PROF_RESUME:
                 self._current_menu = 'prof_resume_menu'
                 break
@@ -159,8 +160,8 @@ class AboutMeMenu(GeneralMethods):
         self._greet_user()
         self._display_login_information()
         print('TEMP TEMP TEMP')
-        print('1 - Voltar ao Menu Anterior')
-        print('2 - Sair')
+        print('[1] - Voltar ao Menu Anterior')
+        print('[2] - Sair')
 
     # SubSub-Menu Objetivo Profissional:
     def _display_professional_objective_menu(self):
@@ -168,13 +169,13 @@ class AboutMeMenu(GeneralMethods):
         self._greet_user()
         self._display_login_information()
         print('TEMP TEMP TEMP')
-        print('1 - Voltar ao Menu Anterior')
-        print('2 - Sair')
+        print('[1] - Voltar ao Menu Anterior')
+        print('[2] - Sair')
 
     # Método único para lidar com menus finais profissionais:
     def _handle_professional_final_menus(self):
         while True:
-            user_choice = input('\nEscolha para voltar ou sair: ')
+            user_choice = input(f'\n{constants.BOLD}Escolha para voltar ou sair:{constants.RESET} ')
             if user_choice == constants.FINAL_RETURN:
                 self._current_menu = 'professional_menu'
                 break
@@ -189,14 +190,14 @@ class AboutMeMenu(GeneralMethods):
         self._display_header('SOBRE MIM: PESSOAL')
         self._greet_user()
         self._display_login_information()
-        print('1 - Quem sou Eu')
-        print('2 - Meus Hobbys')
-        print('3 - Voltar ao Menu Anterior')
-        print('4 - Sair')
+        print('[1] - Quem sou Eu')
+        print('[2] - Meus Hobbys')
+        print('[3] - Voltar ao Menu Anterior')
+        print('[4] - Sair')
 
     def _handle_personal_menu_selection(self):
         while True:
-            user_choice = input('\nEscolha uma área para saber mais: ')
+            user_choice = input(f'\n{constants.BOLD}Escolha uma área para saber mais:{constants.RESET} ')
             if user_choice == constants.PERSONAL_ME:
                 self._current_menu = 'personal_me_menu'
                 break
@@ -218,8 +219,8 @@ class AboutMeMenu(GeneralMethods):
         self._greet_user()
         self._display_login_information()
         print('TEMP TEMP TEMP')
-        print('1 - Voltar ao Menu Anterior')
-        print('2 - Sair')
+        print('[1] - Voltar ao Menu Anterior')
+        print('[2] - Sair')
 
     # SubSub-Menu Hobbys:
     def _display_personal_hobbys_menu(self):
@@ -227,13 +228,13 @@ class AboutMeMenu(GeneralMethods):
         self._greet_user()
         self._display_login_information()
         print('TEMP TEMP TEMP')
-        print('1 - Voltar ao Menu Anterior')
-        print('2 - Sair')
+        print('[1] - Voltar ao Menu Anterior')
+        print('[2] - Sair')
 
     # Método único para tratativas dos menus finais de resposta:
     def _handle_personal_final_menus(self):
         while True:
-            user_choice = input('\nEscolha para voltar ou sair: ')
+            user_choice = input(f'\n{constants.BOLD}Escolha para voltar ou sair:{constants.RESET} ')
             if user_choice == constants.FINAL_RETURN:
                 self._current_menu = 'personal_menu'
                 break
@@ -254,15 +255,15 @@ class ProjectsMenu(GeneralMethods):
         self._display_header('PROJETOS')
         self._greet_user()
         self._display_login_information()
-        print('1 - Projetos em Destaque')
-        print('2 - Porfólio Completo')
-        print('3 - Voltar ao Menu Principal')
-        print('4 - Sair')
+        print('[1] - Projetos em Destaque')
+        print('[2] - Porfólio Completo')
+        print('[3] - Voltar ao Menu Principal')
+        print('[4] - Sair')
 
     # Método para lidar com entrada do usuário:
     def _handle_projects_menu_selection(self):
         while True:
-            user_choice = input('\nEscolha uma área para saber mais: ')
+            user_choice = input(f'\n{constants.BOLD}Escolha uma área para saber mais:{constants.RESET} ')
             if user_choice == constants.PROJECTS_HIGHLIGHTS:
                 self._current_menu = 'projects_highlights_menu'
                 break
@@ -284,8 +285,8 @@ class ProjectsMenu(GeneralMethods):
         self._greet_user()
         self._display_login_information()
         print('TEMP TEMP TEMP')
-        print('1 - Voltar ao Menu Anterior')
-        print('2 - Sair')
+        print('[1] - Voltar ao Menu Anterior')
+        print('[2] - Sair')
 
     # SubSub-Menu Portfólio Completo:
     def _display_project_porfolio_menu(self):
@@ -293,13 +294,13 @@ class ProjectsMenu(GeneralMethods):
         self._greet_user()
         self._display_login_information()
         print('TEMP TEMP TEMP')
-        print('1 - Voltar ao Menu Anterior')
-        print('2 - Sair')    
+        print('[1] - Voltar ao Menu Anterior')
+        print('[2] - Sair')    
 
     # Método único para lidar com menus finais dos projetos:
     def _handle_projects_final_menus(self):
         while True:
-            user_choice = input('\nEscolha para voltar ou sair: ')
+            user_choice = input(f'\n{constants.BOLD}Escolha para voltar ou sair:{constants.RESET} ')
             if user_choice == constants.FINAL_RETURN:
                 self._current_menu = 'projects_menu'
                 break
@@ -319,15 +320,15 @@ class SkillsMenu(GeneralMethods):
         self._display_header("HABILIDADES TECH E SOFT")
         self._greet_user()
         self._display_login_information()
-        print("1 - Tech")
-        print("2 - Soft")
-        print("3 - Voltar ao menu principal")
-        print("4 - Sair")
+        print("[1] - Tech")
+        print("[2] - Soft")
+        print("[3] - Voltar ao menu principal")
+        print("[4] - Sair")
 
     # Método para lidar com entrada do usuário:
     def _handle_skills_menu_selection(self):
         while True:
-            user_choice = input('\nEscolha uma área para saber mais: ')
+            user_choice = input(f'\n{constants.BOLD}Escolha uma área para saber mais:{constants.RESET} ')
             if user_choice == constants.SKILLS_TECH:
                 self._current_menu = 'tech_skills_menu'
                 break
@@ -349,8 +350,8 @@ class SkillsMenu(GeneralMethods):
         self._greet_user()
         self._display_login_information()
         print('TEMP TEMP TEMP')
-        print('1 - Voltar ao Menu Anterior')
-        print('2 - Sair') 
+        print('[1] - Voltar ao Menu Anterior')
+        print('[2] - Sair') 
 
     # SubSub-Menu Soft Skills:
     def _display_soft_skills_menu(self):
@@ -358,13 +359,13 @@ class SkillsMenu(GeneralMethods):
         self._greet_user()
         self._display_login_information()
         print('TEMP TEMP TEMP')
-        print('1 - Voltar ao Menu Anterior')
-        print('2 - Sair') 
+        print('[1] - Voltar ao Menu Anterior')
+        print('[2] - Sair') 
         
     # Método único para lidar com menus finais das habilidades:
     def _handle_skills_final_menus(self):
         while True:
-            user_choice = input('\nEscolha para voltar ou sair: ')
+            user_choice = input(f'\n{constants.BOLD}Escolha para voltar ou sair:{constants.RESET} ')
             if user_choice == constants.FINAL_RETURN:
                 self._current_menu = 'skills_menu'
                 break
@@ -385,15 +386,15 @@ class ContactsMenu(GeneralMethods):
         self._display_header("CONTATOS")
         self._greet_user()
         self._display_login_information()
-        print("1 - LinkedIn")
-        print("2 - E-mail")
-        print("3 - Voltar ao menu principal")
-        print("4 - Sair") 
+        print("[1] - LinkedIn")
+        print("[2] - E-mail")
+        print("[3] - Voltar ao menu principal")
+        print("[4] - Sair") 
 
     # Método para lidar com entrada do usuário:
     def _handle_contacts_menu_selection(self):
         while True:
-            user_choice = input('\nEscolha uma área para saber mais: ')
+            user_choice = input(f'\n{constants.BOLD}Escolha uma área para saber mais:{constants.RESET} ')
             if user_choice == constants.CONT_LINKEDIN:
                 self._current_menu = 'linkedin_menu'
                 break
@@ -415,8 +416,8 @@ class ContactsMenu(GeneralMethods):
         self._greet_user()
         self._display_login_information()
         print('TEMP TEMP TEMP')
-        print('1 - Voltar ao Menu Anterior')
-        print('2 - Sair') 
+        print('[1] - Voltar ao Menu Anterior')
+        print('[2] - Sair') 
 
     # SubSub-Menu Email:
     def _display_email_menu(self):
@@ -424,13 +425,13 @@ class ContactsMenu(GeneralMethods):
         self._greet_user()
         self._display_login_information()
         print('TEMP TEMP TEMP')
-        print('1 - Voltar ao Menu Anterior')
-        print('2 - Sair')
+        print('[1] - Voltar ao Menu Anterior')
+        print('[2] - Sair')
 
     # Método único para lidar com menus finais dos Contatos:
     def _handle_contacts_final_menus(self):
         while True:
-            user_choice = input('\nEscolha para voltar ou sair: ')
+            user_choice = input(f'\n{constants.BOLD}Escolha para voltar ou sair:{constants.RESET} ')
             if user_choice == constants.FINAL_RETURN:
                 self._current_menu = 'contacts_menu'
                 break
@@ -474,6 +475,9 @@ class Initializer(MainMenu, AboutMeMenu, ProjectsMenu, SkillsMenu, ContactsMenu)
             if self._current_menu in self.menu_functions:
                 menu_function = self.menu_functions[self._current_menu]
                 menu_function()
+        print(f'\n{constants.BOLD}Finalizando Bot...{constants.RESET}')
+        sleep(1)
+        print(f'{constants.BOLD}Bot Finalizado!{constants.RESET}')
 
     def run_main_menu(self):
         self._display_main_menu()

@@ -1,6 +1,7 @@
 # My archives
 ideias.txt
 .vscode
+base.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

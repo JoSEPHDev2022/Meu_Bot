@@ -1,9 +1,8 @@
-from bot_class import Menu, Initializer
+from bot_class import Initializer
 
 def main():
-    bot_informacoes = Initializer()
-    bot_informacoes.run()
+    bot = Initializer()
+    bot.run()
 
 if __name__ == '__main__':
     main()
-    

@@ -243,13 +243,13 @@ class AboutMeMenu(GeneralMethods):
         self._display_header('PROFISSIONAL: RESUMO PROFISSIONAL')
         self._greet_user()
         self._display_login_information()
-        print('TEMP TEMP TEMP')
+        print(f'{constants.PROFESSIONAL_RESUME_ANSWER}')
         print('[1] - Voltar ao Menu Anterior')
         print('[2] - Sair')
 
     # Exibir Sub-Menu Final Objetivo Profissional:
     def _display_professional_objective_menu(self):
-        self._display_header('PROFISSIONAL: RESUMO PROFISSIONAL')
+        self._display_header('PROFISSIONAL: OBJETIVO PROFISSIONAL')
         self._greet_user()
         self._display_login_information()
         print('TEMP TEMP TEMP')

@@ -13,6 +13,37 @@ from time import sleep
 
 # Classe Coletora de informações:
 class GeneralMethods:
+    """
+    Classe que contém métodos gerais utilizados no programa.
+
+    Atributos:
+    ----------
+    - _user_name (str): O nome do usuário.
+    ---
+    - _current_menu (str): O menu atual do programa.
+    ---
+    - _current_hour (int): A hora atual do sistema.
+    ---
+    - _current_time (str): O horário atual no formato HH:MM.
+    ---
+    - _current_date (str): A data atual no formato DD/MM/AAAA.
+
+    Métodos:
+    ---------
+    - __init__: Inicializa os atributos da classe.
+    ---
+    - _clear_screen: Método personalizado para limpar o terminal com base no sistema operacional.
+    ---
+    - _display_header: Exibe um cabeçalho personalizado na tela.
+        - Args: header_text (str): O texto do cabeçalho.
+        ---
+    - _get_user_name: Solicita e armazena o nome do usuário.
+    ---
+    - _greet_user: Exibe uma saudação ao usuário com base na hora atual.
+    ---
+    - _display_login_information: Exibe as informações de login do usuário na tela.
+    """
+    # Construtor:
     def __init__(self):
         self._user_name = ''
         self._current_menu = 'main_menu'
@@ -20,7 +51,7 @@ class GeneralMethods:
         self._current_time = datetime.datetime.now().strftime('%H:%M')
         self._current_date = datetime.datetime.now().strftime('%d/%m/%Y')
 
-    # Método personalizado para limpar terminal baseado em OS:
+    # Limpar a tela baseado no OS:
     def _clear_screen(self):
         user_system = platform.system()
         if user_system == 'Windows':
@@ -28,12 +59,16 @@ class GeneralMethods:
         else:
             os.system('clear')
 
-    # Método para apresentação de um header personalizado:
+    # Exibir cabeçalho personalizado:
     def _display_header(self, header_text):
         self._clear_screen()
         print(f' {constants.GREEN}{constants.BOLD}{header_text}{constants.RESET} '.center(75,'-'))
 
-    # Método para exibir Saudação baseado na hora do dia:
+    # Coletar nome do usuário:
+    def _get_user_name(self):
+        self._user_name = input(f'{constants.GREEN}{constants.BOLD}Por favor, insira seu nome:{constants.RESET} ').title()
+
+    # Exibir saudações baseado em hora do dia:
     def _greet_user(self):
         if self._current_hour < 12:
             print(f'Bom Dia, {constants.BOLD}{self._user_name}{constants.RESET}!')
@@ -41,12 +76,8 @@ class GeneralMethods:
             print(f'Boa Tarde, {constants.BOLD}{self._user_name}{constants.RESET}!')
         else:
             print(f'Boa Noite, {constants.BOLD}{self._user_name}{constants.RESET}!')
-    
-    # Método para coletar user_name:
-    def _get_user_name(self):
-        self._user_name = input(f'{constants.GREEN}{constants.BOLD}Por favor, insira seu nome:{constants.RESET} ').title()
 
-    # Método para mostrar informações de entrada do usuário:
+    # Exibir informações de login do usuário:
     def _display_login_information(self):
         print(f'\nData do Acesso: {constants.BOLD}{self._current_date}{constants.RESET}')
         print(f'Hora do Acesso: {constants.BOLD}{self._current_time}{constants.RESET}')
@@ -55,10 +86,26 @@ class GeneralMethods:
 #===================================================================================================#
 # Classe Menu Principal:
 class MainMenu(GeneralMethods):
+    """
+    Classe que representa o menu principal do programa. Fornece métodos para exibir o Menu Principal e
+    lidar com a seleção do usuário.
+
+    Atributos:
+    ---------
+        Nenhum atributo adicional além dos herdados da classe GeneralMethods.
+
+    Métodos:
+    ---------
+    - _display_main_menu(): Apresenta o menu principal na tela.
+    ---
+    - _handle_main_menu_selection(): Lida com a entrada do usuário no menu principal.
+    """
+
+    # Construtor
     def __init__(self):
         super().__init__()
 
-    # Método de apresentação do menu:
+    # Exibe o menu principal:
     def _display_main_menu(self):
         self._display_header('MENU PRINCIPAL')
         self._greet_user()
@@ -69,7 +116,7 @@ class MainMenu(GeneralMethods):
         print('[4] - Contatos')
         print('[5] - Sair')
 
-    # Método para lidar com entrada do usuário:
+    # Lidar com a entrada do usuário:
     def _handle_main_menu_selection(self):
         while True:
             user_choice = input(f'\n{constants.BOLD}Escolha uma área para saber mais:{constants.RESET} ')
@@ -94,10 +141,46 @@ class MainMenu(GeneralMethods):
 #===================================================================================================#           
 # Classe Menu Sobre Mim:
 class AboutMeMenu(GeneralMethods):
+    """
+    Classe que representa o menu "Sobre Mim" do programa. Fornece métodos para exibir o menu "Sobre Mim",
+    lidar com a seleção do usuário e exibir submenus relacionados.
+
+    Atributos:
+    ---------
+        Nenhum atributo adicional além dos herdados da classe GeneralMethods.
+
+    Métodos:
+    ---------
+    - _display_about_me_menu(): Apresenta o menu "Sobre Mim" na tela.
+    ---
+    - _handle_about_me_menu_selection(): Lida com a entrada do usuário no menu "Sobre Mim".
+    ---
+    - _display_professional_menu(): Apresenta o submenu "Sobre Mim: Profissional" na tela.
+    ---
+    - _handle_professional_menu_selection(): Lida com a entrada do usuário no submenu "Sobre Mim: Profissional".
+    ---
+    - _display_professional_resume_menu(): Apresenta o subsubmenu "Profissional: Resumo Profissional" na tela.
+    ---
+    - _display_professional_objective_menu(): Apresenta o subsubmenu "Profissional: Objetivo Profissional" na tela.
+    ---
+    - _handle_professional_final_menus(): Lida com a entrada do usuário nos menus finais do submenu "Sobre Mim: Profissional".
+    ---
+    - _display_personal_menu(): Apresenta o submenu "Sobre Mim: Pessoal" na tela.
+    ---
+    - _handle_personal_menu_selection(): Lida com a entrada do usuário no submenu "Sobre Mim: Pessoal".
+    ---
+    - _display_personal_me_menu(): Apresenta o subsubmenu "Sobre Mim: Quem Sou Eu" na tela.
+    ---
+    - _display_personal_hobbys_menu(): Apresenta o subsubmenu "Sobre Mim: Hobbys" na tela.
+    ---
+    - _handle_personal_final_menus(): Lida com a entrada do usuário nos menus finais do submenu "Sobre Mim: Pessoal".
+    """
+
+    # Construtor:
     def __init__(self):
         super().__init__()
 
-    # Método de apresentação do menu:
+    # Exbir Menu Sobre Mim:
     def _display_about_me_menu(self):
         self._display_header('SOBRE MIM')
         self._greet_user()
@@ -107,7 +190,7 @@ class AboutMeMenu(GeneralMethods):
         print('[3] - Voltar ao Menu Principal')
         print('[4] - Sair')
 
-    # Método para lidar com entrada do usuário:
+    # Lidar com entrada do usuário:
     def _handle_about_me_menu_selection(self):
         while True:
             user_choice = input(f'\n{constants.BOLD}Escolha uma área para saber mais:{constants.RESET} ')
@@ -126,7 +209,7 @@ class AboutMeMenu(GeneralMethods):
             else:
                 print(constants.INVALID_ENTRY_MESSAGE)
 
-    # Sub-menu Profissional:
+    # Exibir Sub-Menu Profissional:
     def _display_professional_menu(self):
         self._display_header('SOBRE MIM: PROFISSIONAL')
         self._greet_user()
@@ -136,6 +219,7 @@ class AboutMeMenu(GeneralMethods):
         print('[3] - Voltar ao Menu Anterior')
         print('[4] - Sair')
 
+    # Lidar com entrada do usuário:
     def _handle_professional_menu_selection(self):
         while True:
             user_choice = input(f'\n{constants.BOLD}Escolha uma área para saber mais:{constants.RESET} ')
@@ -154,7 +238,7 @@ class AboutMeMenu(GeneralMethods):
             else:
                 print(constants.INVALID_ENTRY_MESSAGE)  
 
-    # SubSub-Menu Resumo Profissional:
+    # Exibir Sub-Menu Final Resumo Profissional:
     def _display_professional_resume_menu(self):
         self._display_header('PROFISSIONAL: RESUMO PROFISSIONAL')
         self._greet_user()
@@ -163,7 +247,7 @@ class AboutMeMenu(GeneralMethods):
         print('[1] - Voltar ao Menu Anterior')
         print('[2] - Sair')
 
-    # SubSub-Menu Objetivo Profissional:
+    # Exibir Sub-Menu Final Objetivo Profissional:
     def _display_professional_objective_menu(self):
         self._display_header('PROFISSIONAL: RESUMO PROFISSIONAL')
         self._greet_user()
@@ -172,7 +256,7 @@ class AboutMeMenu(GeneralMethods):
         print('[1] - Voltar ao Menu Anterior')
         print('[2] - Sair')
 
-    # Método único para lidar com menus finais profissionais:
+    # Lidar com entrada do usuário nos menus finais:
     def _handle_professional_final_menus(self):
         while True:
             user_choice = input(f'\n{constants.BOLD}Escolha para voltar ou sair:{constants.RESET} ')
@@ -185,7 +269,7 @@ class AboutMeMenu(GeneralMethods):
             else:
                 print(constants.INVALID_ENTRY_MESSAGE)
 
-    # Sub-menu Pessoal:
+    # Exibir Sub-Menu Pessoal:
     def _display_personal_menu(self):
         self._display_header('SOBRE MIM: PESSOAL')
         self._greet_user()
@@ -195,6 +279,7 @@ class AboutMeMenu(GeneralMethods):
         print('[3] - Voltar ao Menu Anterior')
         print('[4] - Sair')
 
+    # Lidar com entrada do usuário:
     def _handle_personal_menu_selection(self):
         while True:
             user_choice = input(f'\n{constants.BOLD}Escolha uma área para saber mais:{constants.RESET} ')
@@ -213,7 +298,7 @@ class AboutMeMenu(GeneralMethods):
             else:
                 print(constants.INVALID_ENTRY_MESSAGE)
 
-    # SubSub-Menu Quem Sou Eu:
+    # Exibir Sub-Menu Final Quem Sou Eu:
     def _display_personal_me_menu(self):
         self._display_header('SOBRE MIM: QUEM SOU EU')
         self._greet_user()
@@ -222,7 +307,7 @@ class AboutMeMenu(GeneralMethods):
         print('[1] - Voltar ao Menu Anterior')
         print('[2] - Sair')
 
-    # SubSub-Menu Hobbys:
+    # Exibir Sub-Menu-Final Hobbys:
     def _display_personal_hobbys_menu(self):
         self._display_header('SOBRE MIM: HOBBYS')
         self._greet_user()
@@ -231,7 +316,7 @@ class AboutMeMenu(GeneralMethods):
         print('[1] - Voltar ao Menu Anterior')
         print('[2] - Sair')
 
-    # Método único para tratativas dos menus finais de resposta:
+    # Lidar com entrada do usuário nos menus finais:
     def _handle_personal_final_menus(self):
         while True:
             user_choice = input(f'\n{constants.BOLD}Escolha para voltar ou sair:{constants.RESET} ')
@@ -247,6 +332,32 @@ class AboutMeMenu(GeneralMethods):
 #===================================================================================================# 
 # Classe Menu Projetos:
 class ProjectsMenu(GeneralMethods):
+    """
+    Classe que representa o menu de projetos.
+
+    Esta classe herda da classe GeneralMethods e fornece métodos para exibir o menu de projetos,
+    lidar com a seleção do usuário e exibir submenus relacionados aos projetos.
+
+    Atributos:
+    --------
+        Nenhum atributo adicional além dos herdados da classe GeneralMethods.
+
+    Métodos:
+    ------
+    - _display_projects_menu(): Apresenta o menu de projetos na tela, mostrando as opções disponíveis.
+    ---
+    - _handle_projects_menu_selection():Lida com a entrada do usuário no menu de projetos, processando a escolha feita 
+    e atualizando o menu atual ou saindo do programa.
+    ---
+    - _display_project_highlights_menu(): Apresenta o submenu de "Projetos em Destaque" na tela.
+    ---
+    - _display_project_porfolio_menu(): Apresenta o submenu de "Portfólio Completo" na tela.
+    ---
+    - _handle_projects_final_menus(): Lida com os menus finais relacionados aos projetos, permitindo que o usuário retorne 
+    ao menu de projetos ou saia do programa.
+    """
+
+    # Construtor:
     def __init__(self):
         super().__init__()
 
@@ -312,6 +423,32 @@ class ProjectsMenu(GeneralMethods):
 #===================================================================================================# 
 # Classe Menu Habilidades:
 class SkillsMenu(GeneralMethods):
+    """
+    Classe que representa o menu de habilidades.
+
+    Esta classe herda da classe GeneralMethods e fornece métodos para exibir o menu de habilidades,
+    lidar com a seleção do usuário e exibir submenus relacionados às habilidades.
+
+    Atributos:
+    ----------
+        Nenhum atributo adicional além dos herdados da classe GeneralMethods.
+
+    Métodos:
+    ---------
+    - _display_skills_menu(): Apresenta o menu de habilidades na tela, mostrando as opções disponíveis.
+    ---
+    - _handle_skills_menu_selection(): Lida com a entrada do usuário no menu de habilidades, processando a escolha feita 
+    e atualizando o menu atual ou saindo do programa.
+    ---
+    - _display_tech_skills_menu(): Apresenta o submenu de "Tech Skills" na tela.
+    ---
+    - _display_soft_skills_menu(): Apresenta o submenu de "Soft Skills" na tela.
+    ---
+    - _handle_skills_final_menus(): Lida com os menus finais relacionados às habilidades, permitindo que o usuário retorne 
+    ao menu de habilidades ou saia do programa.
+    """
+    
+    # Construtor:
     def __init__(self):
         super().__init__()
 
@@ -378,6 +515,32 @@ class SkillsMenu(GeneralMethods):
 #===================================================================================================# 
 # Classe Menu Contatos:
 class ContactsMenu(GeneralMethods):
+    """
+    Classe que representa o menu de contatos.
+
+    Esta classe herda da classe GeneralMethods e fornece métodos para exibir o menu de contatos,
+    lidar com a seleção do usuário e exibir submenus relacionados aos contatos.
+
+    Atributos:
+    ----------
+        Nenhum atributo adicional além dos herdados da classe GeneralMethods.
+
+    Métodos:
+    ----------
+    - _display_contacts_menu(): Apresenta o menu de contatos na tela, mostrando as opções disponíveis.
+    ---
+    - _handle_contacts_menu_selection(): Lida com a entrada do usuário no menu de contatos, processando a escolha feita 
+    e atualizando o menu atual ou saindo do programa.
+    ---
+    - _display_linkedin_menu(): Apresenta o submenu do LinkedIn na tela.
+    ---
+    - _display_email_menu(): Apresenta o submenu de e-mail na tela.
+    ---
+    - _handle_contacts_final_menus(): Lida com os menus finais relacionados aos contatos, permitindo que o usuário retorne 
+    ao menu de contatos ou saia do programa.
+    """
+
+    # Construtor:
     def __init__(self):
         super().__init__()
 
@@ -444,6 +607,82 @@ class ContactsMenu(GeneralMethods):
 #===================================================================================================# 
 # Classe Inicializadora do Bot:
 class Initializer(MainMenu, AboutMeMenu, ProjectsMenu, SkillsMenu, ContactsMenu):
+    """
+    Classe responsável por inicializar e executar o bot do menu interativo.
+
+    Essa classe herda as funcionalidades dos menus principais e submenus, e define um dicionário
+    para mapear cada menu a uma função correspondente. Além disso, fornece métodos para executar
+    cada menu individualmente e executar o bot como um todo.
+
+    Atributos:
+    ----------
+        menu_functions (dict): Um dicionário que mapeia cada menu a uma função correspondente.
+
+    Métodos:
+    ---------
+        run():
+            Executa o bot, inicializando a interação com o usuário e navegando pelos menus.
+
+        run_main_menu():
+            Executa o menu principal.
+
+        run_about_me_menu():
+            Executa o submenu "Sobre Mim".
+
+        run_professional_menu():
+            Executa o submenu "Experiência Profissional".
+
+        run_professional_resume_menu():
+            Executa o submenu "Resumo Profissional".
+
+        run_professional_objective_menu():
+            Executa o submenu "Objetivo Profissional".
+
+        run_personal_menu():
+            Executa o submenu "Informações Pessoais".
+
+        run_personal_me_menu():
+            Executa o submenu "Sobre Mim (Pessoal)".
+
+        run_personal_hobbys_menu():
+            Executa o submenu "Hobbies".
+
+        run_projects_menu():
+            Executa o submenu "Projetos".
+
+        run_project_highlights_menu():
+            Executa o submenu "Projetos em Destaque".
+
+        run_project_portfolio_menu():
+            Executa o submenu "Portfólio Completo".
+
+        run_skills_menu():
+            Executa o submenu "Habilidades".
+
+        run_tech_skills_menu():
+            Executa o submenu "Habilidades Técnicas".
+
+        run_soft_skills_menu():
+            Executa o submenu "Habilidades Sociais".
+
+        run_contacts_menu():
+            Executa o submenu "Contatos".
+
+        run_linkedin_menu():
+            Executa o submenu "LinkedIn".
+
+        run_email_menu():
+            Executa o submenu "E-mail".
+
+    Exemplo de uso:
+        # Criando uma instância do inicializador do bot
+        initializer = Initializer()
+
+        # Executando o bot
+        initializer.run()
+    """
+
+    # Construtor:
     def __init__(self):
         super().__init__()
 
@@ -470,7 +709,6 @@ class Initializer(MainMenu, AboutMeMenu, ProjectsMenu, SkillsMenu, ContactsMenu)
 
     def run(self):
         self._get_user_name()
-
         while self._current_menu != 'exit':
             if self._current_menu in self.menu_functions:
                 menu_function = self.menu_functions[self._current_menu]

@@ -44,3 +44,19 @@ FINAL_EXIT = '2'
 GREEN = '\033[92m'
 RESET = '\033[0m'
 BOLD = '\033[1m'
+
+# Constantes de resposta:
+PROFESSIONAL_RESUME_ANSWER = '''
+Após terminar minha primeira graduação em História pelo Centro Universitário Sumaré, dei um shift na carreira e fui admitido 
+para cursar Data Analytics pela Resilia Educação, iniciando minha trajetória em Dados, onde ao longo da jornada intensa de 
+mais de 400 horas de conteúdo, tive destaque com meu aprendizado rápido e meu empenho em sempre ir além do pedido, assim, 
+ao final do curso fui aceito novamente na empresa, porém agora como Professor de Monitoria de Data Analytics.
+
+Além de fornecer aulas aos estudantes futuros analistas de dados, atualmente também continuo meu desenvolvimento e 
+aprofundamento na área de Dados, realizando uma Pós-Graduação em Análise de Dados pela faculdade Descomplica, concluindo 
+diversos cursos especializastes como os fornecidos pela Data Science Academy e Udemy e também realizando projetos cada vez 
+mais aprofundados e dinâmicos, não só com dados mas com programação orientada a objetos em Python.
+
+Como planejamento futuro, espero ainda no segundo semestre de 2023 iniciar uma segunda graduação, dessa vez com foco em Dados 
+e Business Intelligence, para me consagrar ainda mais nessa área que se tornou a paixão da minha vida.
+'''

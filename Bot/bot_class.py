@@ -81,8 +81,7 @@ class GeneralMethods:
     # Exibir informações de login do usuário:
     def _display_login_information(self):
         print(f'\nData do Acesso: {constants.BOLD}{self._current_date}{constants.RESET}')
-        print(f'Hora do Acesso: {constants.BOLD}{self._current_time}{constants.RESET}')
-        print(f'Usuário Logado: {constants.BOLD}{self._user_name}{constants.RESET}\n')
+        print(f'Hora do Acesso: {constants.BOLD}{self._current_time}{constants.RESET}\n')
 
 #===================================================================================================#
 # Classe Menu Principal:

@@ -9,6 +9,7 @@ import datetime
 import os
 import platform
 import constants
+import requests
 from time import sleep
 
 # Classe Coletora de informações:
@@ -351,6 +352,9 @@ class ProjectsMenu(GeneralMethods):
     ---
     - _display_project_highlights_menu(): Apresenta o submenu de "Projetos em Destaque" na tela.
     ---
+    - _display_project_description(): Coleta via API do GitHub das descrições e nomes dos projetos em destaque.
+        - Args: project_name (str): Nome do Projeto.
+    ---
     - _display_project_porfolio_menu(): Apresenta o submenu de "Portfólio Completo" na tela.
     ---
     - _handle_projects_final_menus(): Lida com os menus finais relacionados aos projetos, permitindo que o usuário retorne 
@@ -395,9 +399,48 @@ class ProjectsMenu(GeneralMethods):
         self._display_header('PROJETOS: PROJETOS EM DESTAQUE')
         self._greet_user()
         self._display_login_information()
-        print('TEMP TEMP TEMP')
+
+        projects = ['Dash_Financeiro_Power_BI', 'EDA_Pirated_Movies', 'Meu_Bot']
+
+        for project_name in projects:
+            self._display_project_description(project_name)
+
         print('[1] - Voltar ao Menu Anterior')
-        print('[2] - Sair')
+        print('[2] - Sair') 
+
+    # Coleta de informações dos projetos via API:
+    def _display_project_description(self, project_name):
+        # Constrói a URL do projeto no GitHub
+        project_url = f"https://api.github.com/repos/JoSEPHDev2022/{project_name}"
+
+        # Realiza a requisição para obter as informações do projeto
+        try:
+            response = requests.get(project_url)
+            response.raise_for_status()
+        except requests.exceptions.RequestException as e:
+            # Exibe uma mensagem de erro se a requisição falhar
+            print(f"Erro ao obter informações do projeto {project_name}: {e}")
+            return
+
+        # Extrai os dados do projeto da resposta da requisição
+        project_data = response.json()
+        description = project_data.get("description")
+        repository_url = project_data.get("html_url")
+
+        # Imprime o nome do projeto em negrito
+        print(f'---{constants.BOLD}{project_name}{constants.RESET}---')
+
+        # Imprime a descrição do projeto, se estiver disponível
+        if description:
+            print(f"{description}\n")
+        else:
+            print("Descrição não disponível\n")
+
+        # Imprime o link do repositório do projeto, se estiver disponível
+        if repository_url:
+            print(f"Link do repositório: {repository_url}\n")
+        else:
+            print("Link do repositório não disponível\n")
 
     # SubSub-Menu Portfólio Completo:
     def _display_project_porfolio_menu(self):

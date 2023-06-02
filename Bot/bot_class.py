@@ -48,9 +48,10 @@ class GeneralMethods:
     def __init__(self):
         self._user_name = ''
         self._current_menu = 'main_menu'
-        self._current_hour = datetime.datetime.now().hour
-        self._current_time = datetime.datetime.now().strftime('%H:%M')
-        self._current_date = datetime.datetime.now().strftime('%d/%m/%Y')
+        self._current_time = datetime.datetime.now()
+        self._current_hour = self._current_time.hour
+        self._current_hour_and_min = self._current_time.strftime('%H:%M')
+        self._current_date = self._current_time.strftime('%d/%m/%Y')
 
     # Limpar a tela baseado no OS:
     def _clear_screen(self):
@@ -81,7 +82,7 @@ class GeneralMethods:
     # Exibir informações de login do usuário:
     def _display_login_information(self):
         print(f'\nData do Acesso: {constants.BOLD}{self._current_date}{constants.RESET}')
-        print(f'Hora do Acesso: {constants.BOLD}{self._current_time}{constants.RESET}\n')
+        print(f'Hora do Acesso: {constants.BOLD}{self._current_hour_and_min}{constants.RESET}\n')
 
 #===================================================================================================#
 # Classe Menu Principal:
